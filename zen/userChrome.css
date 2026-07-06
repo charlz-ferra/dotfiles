@@ -1,0 +1,105 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+ *  Zen userChrome — REDTEAM / BLOOD  (charlz-ferra)
+ *  Графит #060608 + кроваво-красный #d2772e. Строго, минималистично, опасно.
+ *  Грузится при toolkit.legacyUserProfileCustomizations.stylesheets=true
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Палитра ── */
+  --rt-bg: #060608;
+  --rt-panel: #16161a;
+  --rt-alt: #26262c;
+  --rt-text: #c8c8d0;
+  --rt-dim: #6c6c78;
+  --rt-accent: #d2772e;
+  --rt-accent-dark: #a85a20;
+
+  /* ── Zen accent / primary ── */
+  --zen-primary-color: var(--rt-accent) !important;
+  --zen-colors-primary: var(--rt-accent) !important;
+  --zen-colors-secondary: var(--rt-panel) !important;
+  --zen-colors-tertiary: var(--rt-alt) !important;
+  --zen-main-browser-background: var(--rt-bg) !important;
+  --zen-themed-toolbar-bg: var(--rt-bg) !important;
+
+  /* ── Firefox toolbar vars ── */
+  --toolbar-bgcolor: var(--rt-bg) !important;
+  --toolbar-color: var(--rt-text) !important;
+  --lwt-accent-color: var(--rt-bg) !important;
+  --lwt-text-color: var(--rt-text) !important;
+  --toolbarbutton-icon-fill: var(--rt-text) !important;
+  --toolbarbutton-icon-fill-attention: var(--rt-accent) !important;
+}
+
+/* ── Главный каркас / тулбоксы ── */
+#navigator-toolbox,
+#zen-appcontent-navbar-container,
+.zen-sidebar-web-panel,
+#titlebar {
+  background-color: var(--rt-bg) !important;
+  color: var(--rt-text) !important;
+}
+
+/* ── URL-бар: тёмный, фокус — красная рамка ── */
+#urlbar,
+#searchbar {
+  --toolbar-field-background-color: var(--rt-panel) !important;
+  --toolbar-field-color: var(--rt-text) !important;
+  --toolbar-field-focus-background-color: var(--rt-panel) !important;
+  --toolbar-field-focus-border-color: var(--rt-accent) !important;
+}
+#urlbar[focused="true"] > #urlbar-background {
+  border-color: var(--rt-accent) !important;
+  box-shadow: 0 0 0 1px var(--rt-accent) !important;
+}
+
+/* ── Вкладки (вертикальные в сайдбаре): активная — красный индикатор ── */
+.tabbrowser-tab[selected] .tab-background,
+.tabbrowser-tab[visuallyselected] .tab-background {
+  background-color: var(--rt-alt) !important;
+  box-shadow: inset 2px 0 0 0 var(--rt-accent) !important;
+}
+.tabbrowser-tab[selected] .tab-label {
+  color: var(--rt-text) !important;
+  font-weight: 600 !important;
+}
+.tabbrowser-tab:hover .tab-background {
+  background-color: var(--rt-panel) !important;
+}
+
+/* ── Индикатор воспроизведения/закрытия и прочие акценты ── */
+.tab-icon-overlay[soundplaying],
+.tab-close-button:hover {
+  fill: var(--rt-accent) !important;
+  color: var(--rt-accent) !important;
+}
+
+/* ── Workspace-индикатор (полоска текущего пространства) ── */
+#zen-current-workspace-indicator,
+.zen-workspace-indicator[active="true"] {
+  color: var(--rt-accent) !important;
+}
+
+/* ── Кнопки сайдбара hover ── */
+#zen-sidebar-top-buttons toolbarbutton:hover,
+#zen-sidebar-foot-buttons toolbarbutton:hover {
+  background-color: var(--rt-alt) !important;
+}
+
+/* ── Скроллбары — тонкие, тёмные с красным ── */
+* {
+  scrollbar-color: var(--rt-accent-dark) transparent !important;
+  scrollbar-width: thin !important;
+}
+
+/* ── Контекстные меню / попапы ── */
+menupopup,
+panel {
+  --panel-background: var(--rt-panel) !important;
+  --panel-color: var(--rt-text) !important;
+  --panel-border-color: var(--rt-alt) !important;
+}
+menuitem:hover,
+menu:hover {
+  background-color: var(--rt-accent-dark) !important;
+}

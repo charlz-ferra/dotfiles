@@ -1,0 +1,13 @@
+title-text: ""
+desktop-color: "#000000"
+
++ boot_menu {
+  left = 30%
+  top = 35%
+  width = 40%
+  height = 50%
+  item_color = "#8a8a8a"
+  selected_item_color = "#D2772E"
+  item_height = 42
+  item_spacing = 10
+}

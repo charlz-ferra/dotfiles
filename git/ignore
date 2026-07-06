@@ -1,0 +1,59 @@
+# ═══════════════════════════════════════════════════════════════
+#  Глобальный .gitignore — игнорится во ВСЕХ репозиториях
+#  Подключён через git config --global core.excludesfile
+# ═══════════════════════════════════════════════════════════════
+
+# ─── Секреты (НИКОГДА не коммитим) ───
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+*credentials*
+
+# ─── OS мусор ───
+.DS_Store
+Thumbs.db
+*~
+.directory
+.Trash-*
+
+# ─── Редакторы / IDE ───
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*.code-workspace
+
+# ─── Python ───
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+.ipynb_checkpoints/
+
+# ─── Node / JS ───
+node_modules/
+.npm/
+dist/
+.next/
+.cache/
+*.log
+npm-debug.log*
+
+# ─── Прочий мусор сборки ───
+*.tmp
+*.bak
+*.bak-*
+.cache/
+coverage/
+
+**/.claude/settings.local.json

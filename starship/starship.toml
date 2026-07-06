@@ -1,0 +1,104 @@
+# ═══════════════════════════════════════════════════════════════
+#  Starship prompt — Redteam/Blood (графит + кровь), под вайб-кодинг
+#  Дока: https://starship.rs/config/
+# ═══════════════════════════════════════════════════════════════
+
+palette = "redteam"
+
+# Двухстрочный: инфа сверху, ввод снизу (удобно для длинных путей)
+add_newline = true
+
+format = """
+$directory$git_branch$git_status$git_state\
+$python$nodejs$rust$golang$docker_context$kubernetes\
+$cmd_duration
+$character"""
+
+# ─── Палитра Redteam/Blood ───
+[palettes.redteam]
+accent = "#d2772e"
+bright = "#e08a45"
+text = "#c8c8d0"
+steel = "#9a9aa6"
+dim = "#6c6c78"
+amber = "#d2aa46"
+green = "#7a9f6c"
+
+# ─── Символ ввода (меняет цвет по статусу последней команды) ───
+[character]
+success_symbol = "[➜](bold accent)"
+error_symbol = "[✗](bold bright)"
+vimcmd_symbol = "[](bold accent)"
+
+# ─── Текущая папка ───
+[directory]
+style = "bold steel"
+truncation_length = 4
+truncate_to_repo = true
+read_only = " 󰌾"
+read_only_style = "bold accent"
+home_symbol = "~"
+
+# ─── Git ───
+[git_branch]
+symbol = " "
+style = "bold accent"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "bold amber"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = "⚔ "
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "📦${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bold accent"
+
+# ─── Время выполнения команды (если > 2 сек) ───
+[cmd_duration]
+min_time = 2000
+format = "[ $duration]($style) "
+style = "bold dim"
+
+# ─── Языки (показываются только в проектах с ними) ───
+[python]
+symbol = " "
+style = "bold green"
+format = '[$symbol$version( \($virtualenv\))]($style) '
+
+[nodejs]
+symbol = " "
+style = "bold green"
+format = "[$symbol$version]($style) "
+
+[rust]
+symbol = " "
+style = "bold accent"
+format = "[$symbol$version]($style) "
+
+[golang]
+symbol = " "
+style = "bold steel"
+format = "[$symbol$version]($style) "
+
+# ─── Docker / Kubernetes (для твоих контейнеров) ───
+[docker_context]
+symbol = " "
+style = "bold dim"
+format = "[$symbol$context]($style) "
+only_with_files = true
+
+[kubernetes]
+symbol = "☸ "
+style = "bold dim"
+format = '[$symbol$context( \($namespace\))]($style) '
+disabled = true   # включи если активно работаешь с k8s

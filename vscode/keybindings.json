@@ -1,0 +1,96 @@
+// ═══════════════════════════════════════════════════════════════
+//  VS Code keybindings — стандарт + удобные допы под вайб-кодинг
+// ═══════════════════════════════════════════════════════════════
+[
+  // ─── Терминал: ctrl+` тоггл (стандарт), ctrl+shift+` новый ───
+  {
+    "key": "ctrl+oem_3",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+
+  // ─── Дублировать строку вниз (ctrl+shift+d) ───
+  {
+    "key": "ctrl+shift+d",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // ─── Двигать строки alt+up/down (стандарт, подтверждаем) ───
+  {
+    "key": "alt+up",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+down",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // ─── Формат документа ctrl+alt+l (как в JetBrains) ───
+  {
+    "key": "ctrl+alt+l",
+    "command": "editor.action.formatDocument",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // ─── Мультикурсор по всем совпадениям ctrl+shift+l (стандарт) ───
+  {
+    "key": "ctrl+alt+a",
+    "command": "editor.action.selectHighlights",
+    "when": "editorTextFocus"
+  },
+
+  // ─── Быстрый сплит редактора ctrl+\ (стандарт, подтверждаем) ───
+  {
+    "key": "ctrl+oem_5",
+    "command": "workbench.action.splitEditor"
+  },
+
+  // ─── Zen mode ctrl+k z (стандарт) + быстрый ctrl+alt+z ───
+  {
+    "key": "ctrl+alt+z",
+    "command": "workbench.action.toggleZenMode"
+  },
+
+  // ─── Тоггл сайдбара ctrl+b (стандарт) + панель ctrl+j (стандарт) ───
+  {
+    "key": "ctrl+alt+b",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
+
+  // ─── Закрыть все вкладки кроме активной ───
+  {
+    "key": "ctrl+k ctrl+w",
+    "command": "workbench.action.closeOtherEditors"
+  },
+
+  // ─── Быстрый тоггл переноса строк ───
+  {
+    "key": "alt+z",
+    "command": "editor.action.toggleWordWrap"
+  },
+
+  // ─── Сохранить всё ctrl+k s ───
+  {
+    "key": "ctrl+k s",
+    "command": "workbench.action.files.saveAll"
+  },
+
+  // ─── Переименовать символ F2 (стандарт) + быстрый рефактор ctrl+. ───
+  {
+    "key": "ctrl+alt+r",
+    "command": "editor.action.refactor",
+    "when": "editorTextFocus"
+  },
+
+  // ─── Свернуть/развернуть все ctrl+k ctrl+0 / ctrl+k ctrl+j (стандарт) ───
+
+  // ─── Навигация по ошибкам F8 (стандарт) + быстрый переход ───
+  {
+    "key": "alt+x",
+    "command": "editor.action.marker.next",
+    "when": "editorTextFocus"
+  }
+]

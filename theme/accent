@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# ═══════════════════════════════════════════════════════════════
+#  accent — переключатель «опасного» акцента темы Redteam
+#  Меняет Plasma color-scheme + KDE accent + декорацию + starship-палитру.
+#  Использование:  accent red | lime | cyan | amber
+# ═══════════════════════════════════════════════════════════════
+set -uo pipefail
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
+
+case "${1:-ember}" in
+  ember) SCHEME=BlackOrange;  RGB="210,119,46"; HEX="d2772e"; BRIGHT="e08a45" ;;
+  red)   SCHEME=RedteamBlood; RGB="255,44,44";  HEX="ff2c2c"; BRIGHT="ff5a5a" ;;
+  lime)  SCHEME=RedteamLime;  RGB="159,239,0";  HEX="9fef00"; BRIGHT="b6ff33" ;;
+  cyan)  SCHEME=RedteamCyan;  RGB="42,245,255"; HEX="2af5ff"; BRIGHT="7afaff" ;;
+  amber) SCHEME=RedteamAmber; RGB="255,176,0";  HEX="ffb000"; BRIGHT="ffc640" ;;
+  *) echo "accent: выбери цвет → ember | red | lime | cyan | amber"; exit 1 ;;
+esac
+
+echo "🩸 Акцент → $1 ($SCHEME)"
+
+# ВАЖНО: акцент ставим ПЕРЕД схемой, иначе KDE затинтит декорации старым акцентом
+kwriteconfig6 --file kdeglobals --group General --key AccentColor "$RGB"
+kwriteconfig6 --file kdeglobals --group General --key accentColorFromWallpaper false
+
+# Схема (toggle через другую — заставляет перегенерить тинты под новый акцент)
+ALT=RedteamCyan; [ "$SCHEME" = "RedteamCyan" ] && ALT=RedteamBlood
+plasma-apply-colorscheme "$ALT" >/dev/null 2>&1
+plasma-apply-colorscheme "$SCHEME" >/dev/null 2>&1
+
+# KDE авто-тинтит Header(тулбары) акцентом → возвращаем графит (строго/минимально)
+kwriteconfig6 --file kdeglobals --group "Colors:Header" --key BackgroundNormal "13,13,15"
+kwriteconfig6 --file kdeglobals --group "Colors:Header" --key BackgroundAlternate "22,22,26"
+kwriteconfig6 --file kdeglobals --group "Colors:Header" --key ForegroundNormal "200,200,208"
+kwriteconfig6 --file kdeglobals --group "Colors:Header" --group "Inactive" --key BackgroundNormal "16,16,20"
+kwriteconfig6 --file kdeglobals --group General --key accentActiveTitlebar false
+
+# starship-палитра (промпт в тон)
+ST="$HOME/.config/starship.toml"
+if [ -f "$ST" ]; then
+  sed -i "s/^accent = \"#.*/accent = \"#$HEX\"/" "$ST"
+  sed -i "s/^bright = \"#.*/bright = \"#$BRIGHT\"/" "$ST"
+fi
+
+# Перечитать kwin + плазму
+qdbus6 org.kde.KWin /KWin reconfigure >/dev/null 2>&1 || true
+
+echo "✓ Готово. Новые окна подхватят сразу; запущенные Qt-апп — после рестарта."

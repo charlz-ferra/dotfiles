@@ -1,0 +1,88 @@
+{
+  // ═══════════════════════════════════════════════════════════════
+  //  Глобальные сниппеты «под вайб» — работают во всех проектах
+  //  Набери префикс (prefix) → Tab. Доступно в указанных scope.
+  // ═══════════════════════════════════════════════════════════════
+
+  // ─── PYTHON ────────────────────────────────────────────────────
+  "Python: main guard": {
+    "scope": "python",
+    "prefix": "main",
+    "body": [
+      "def main() -> None:",
+      "    ${0:pass}",
+      "",
+      "",
+      "if __name__ == \"__main__\":",
+      "    main()"
+    ],
+    "description": "Точка входа if __name__ == __main__"
+  },
+  "Python: функция с типами и докстрингом": {
+    "scope": "python",
+    "prefix": "deff",
+    "body": [
+      "def ${1:name}(${2:args}) -> ${3:None}:",
+      "    \"\"\"${4:Краткое описание.}\"\"\"",
+      "    ${0:pass}"
+    ],
+    "description": "Типизированная функция с докстрингом"
+  },
+  "Python: try/except с логом": {
+    "scope": "python",
+    "prefix": "try",
+    "body": [
+      "try:",
+      "    ${1:pass}",
+      "except ${2:Exception} as e:",
+      "    logger.error(\"${3:что сломалось}: %s\", e)",
+      "    ${0:raise}"
+    ],
+    "description": "try/except с логированием (без пустого except!)"
+  },
+  "Python: логгер модуля": {
+    "scope": "python",
+    "prefix": "logger",
+    "body": [
+      "import logging",
+      "",
+      "logger = logging.getLogger(__name__)"
+    ],
+    "description": "Стандартный логгер модуля"
+  },
+
+  // ─── SHELL / BASH ──────────────────────────────────────────────
+  "Bash: шапка скрипта (strict mode)": {
+    "scope": "shellscript",
+    "prefix": "header",
+    "body": [
+      "#!/usr/bin/env bash",
+      "set -euo pipefail",
+      "IFS=$'\\n\\t'",
+      "",
+      "${0:# код}"
+    ],
+    "description": "Безопасная шапка bash-скрипта (strict mode)"
+  },
+
+  // ─── УНИВЕРСАЛЬНЫЕ ─────────────────────────────────────────────
+  "TODO с автором": {
+    "prefix": "todo",
+    "body": ["${LINE_COMMENT} TODO(charlz-ferra): ${0:что сделать}"],
+    "description": "TODO-маркер (подхватится todo-tree)"
+  },
+  "FIXME": {
+    "prefix": "fixme",
+    "body": ["${LINE_COMMENT} FIXME: ${0:что починить}"],
+    "description": "FIXME-маркер"
+  },
+  "Разделитель-баннер": {
+    "prefix": "banner",
+    "body": [
+      "${LINE_COMMENT} ═══════════════════════════════════════════════",
+      "${LINE_COMMENT}  ${0:Заголовок секции}",
+      "${LINE_COMMENT} ═══════════════════════════════════════════════"
+    ],
+    "description": "Красивый разделитель секции"
+  }
+}

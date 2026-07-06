@@ -1,0 +1,483 @@
+{
+  // ════════════════════════════════════════════════════════════════
+  //  VS CODE — настройка «на века» под вайб-кодинг
+  //  Железо: ASUS ROG G16, OLED 2560x1600 240Hz, CachyOS, KDE/Wayland
+  //  Бэкап старого конфига: ~/.config/Code/User/settings.json.bak-*
+  // ════════════════════════════════════════════════════════════════
+
+  // ─── ТЕМА И ИКОНКИ ───────────────────────────────────────────────
+  // Redteam/Blood — графит #060608 + кровь #d2772e (хакер-вайб, в тон всей системе).
+  // База: встроенная Default Dark Modern (без зависимости от расширений),
+  // весь вид задаётся workbench.colorCustomizations + tokenColorCustomizations ниже.
+  "workbench.colorTheme": "Dark Modern",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "Default",
+
+  // ─── ШРИФТ И РЕНДЕР (HiDPI + лигатуры + курсив) ──────────────────
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'FantasqueSansM Nerd Font', 'MesloLGS Nerd Font', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 15,
+  "editor.lineHeight": 1.6,
+  "editor.letterSpacing": 0.3,
+  "editor.fontWeight": "400",
+  // Синтаксис Redteam/Blood: ключевые слова красные, строки зелёные, коменты серые-курсив
+  "editor.tokenColorCustomizations": {
+    "comments": "#6c6c78",
+    "strings": "#7a9f6c",
+    "keywords": "#d2772e",
+    "numbers": "#d2aa46",
+    "types": "#9fb0c0",
+    "functions": "#e0e0e6",
+    "variables": "#c8c8d0",
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "comment.line",
+          "comment.block",
+          "punctuation.definition.comment",
+        ],
+        "settings": { "fontStyle": "italic", "foreground": "#6c6c78" },
+      },
+      {
+        "scope": ["keyword.control", "storage.type", "storage.modifier"],
+        "settings": { "fontStyle": "italic", "foreground": "#d2772e" },
+      },
+      {
+        "scope": [
+          "constant.language",
+          "constant.numeric",
+          "constant.character",
+        ],
+        "settings": { "foreground": "#d2aa46" },
+      },
+      {
+        "scope": [
+          "entity.name.function",
+          "support.function",
+          "meta.function-call",
+        ],
+        "settings": { "foreground": "#e0e0e6" },
+      },
+      {
+        "scope": [
+          "entity.name.type",
+          "entity.name.class",
+          "support.type",
+          "support.class",
+        ],
+        "settings": { "foreground": "#9fb0c0" },
+      },
+      {
+        "scope": [
+          "keyword.operator",
+          "punctuation.separator",
+          "punctuation.terminator",
+        ],
+        "settings": { "foreground": "#9a9aa6" },
+      },
+      {
+        "scope": ["entity.name.tag", "punctuation.definition.tag"],
+        "settings": { "foreground": "#e08a45" },
+      },
+      {
+        "scope": ["entity.other.attribute-name"],
+        "settings": { "foreground": "#d2aa46" },
+      },
+      {
+        "scope": ["variable.parameter", "variable.other"],
+        "settings": { "foreground": "#b0b0b8" },
+      },
+    ],
+  },
+
+  // ─── КУРСОР И ПЛАВНОСТЬ (раскрываем 240Hz) ───────────────────────
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 2,
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true,
+  "terminal.integrated.smoothScrolling": true,
+  "editor.mouseWheelScrollSensitivity": 1.2,
+
+  // ─── HiDPI ZOOM (2560x1600 на 16" ≈ 191 DPI) ─────────────────────
+  "window.zoomLevel": 0.4,
+
+  // ─── ПОВЕДЕНИЕ РЕДАКТОРА (форматирование, автосейв) ──────────────
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "files.autoSave": "onFocusChange",
+  "files.autoSaveDelay": 1000,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
+  },
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "editor.insertSpaces": true,
+  "editor.wordWrap": "off",
+  "editor.linkedEditing": true,
+  "editor.suggestSelection": "first",
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.quickSuggestionsDelay": 10,
+  "editor.snippetSuggestions": "top",
+  "editor.inlineSuggest.enabled": true,
+
+  // ─── ЦВЕТА: Redteam/Blood (графит #060608 + кровь #d2772e), поверх Default Dark Modern ──
+  // Тулбары/панели — графит, акценты (фокус/выделение/активный таб/бейджи) — красные.
+  "workbench.colorCustomizations": {
+    "foreground": "#c8c8d0",
+    "focusBorder": "#d2772e",
+    "errorForeground": "#e08a45",
+
+    "editor.background": "#060608",
+    "editor.foreground": "#c8c8d0",
+    "editorCursor.foreground": "#d2772e",
+    "editor.selectionBackground": "#a85a2066",
+    "editor.selectionHighlightBackground": "#a85a2033",
+    "editor.lineHighlightBackground": "#16161a",
+    "editor.findMatchBackground": "#a85a20aa",
+    "editor.findMatchHighlightBackground": "#a85a2055",
+    "editorLineNumber.foreground": "#3a3a42",
+    "editorLineNumber.activeForeground": "#d2772e",
+    "editorIndentGuide.background1": "#1c1c22",
+    "editorIndentGuide.activeBackground1": "#d2772e55",
+    "editorWhitespace.foreground": "#26262c",
+    "editorRuler.foreground": "#1c1c22",
+    "editorBracketMatch.background": "#a85a2044",
+    "editorBracketMatch.border": "#d2772e",
+    "editorGutter.modifiedBackground": "#d2aa46",
+    "editorGutter.addedBackground": "#7a9f6c",
+    "editorGutter.deletedBackground": "#d2772e",
+
+    "sideBar.background": "#060608",
+    "sideBar.foreground": "#c8c8d0",
+    "sideBar.border": "#16161a",
+    "sideBarSectionHeader.background": "#16161a",
+    "sideBarSectionHeader.foreground": "#c8c8d0",
+    "sideBarTitle.foreground": "#9a9aa6",
+    "activityBar.background": "#060608",
+    "activityBar.foreground": "#c8c8d0",
+    "activityBar.inactiveForeground": "#6c6c78",
+    "activityBar.border": "#16161a",
+    "activityBar.activeBorder": "#d2772e",
+    "activityBarBadge.background": "#d2772e",
+    "activityBarBadge.foreground": "#060608",
+
+    "editorGroupHeader.tabsBackground": "#060608",
+    "editorGroupHeader.border": "#16161a",
+    "tab.activeBackground": "#16161a",
+    "tab.activeForeground": "#e0e0e6",
+    "tab.activeBorderTop": "#d2772e",
+    "tab.activeBorder": "#d2772e",
+    "tab.inactiveBackground": "#060608",
+    "tab.inactiveForeground": "#6c6c78",
+    "tab.border": "#060608",
+    "tab.hoverBackground": "#16161a",
+    "tab.unfocusedActiveBorderTop": "#a85a20",
+
+    "titleBar.activeBackground": "#060608",
+    "titleBar.activeForeground": "#c8c8d0",
+    "titleBar.inactiveBackground": "#060608",
+    "titleBar.inactiveForeground": "#6c6c78",
+    "titleBar.border": "#16161a",
+
+    "statusBar.background": "#060608",
+    "statusBar.foreground": "#c8c8d0",
+    "statusBar.border": "#16161a",
+    "statusBar.noFolderBackground": "#060608",
+    "statusBar.debuggingBackground": "#a85a20",
+    "statusBar.debuggingForeground": "#e0e0e6",
+    "statusBarItem.remoteBackground": "#d2772e",
+    "statusBarItem.remoteForeground": "#060608",
+    "statusBarItem.hoverBackground": "#16161a",
+    "statusBarItem.errorBackground": "#a85a20",
+
+    "panel.background": "#060608",
+    "panel.border": "#26262c",
+    "panelTitle.activeForeground": "#d2772e",
+    "panelTitle.activeBorder": "#d2772e",
+    "panelTitle.inactiveForeground": "#6c6c78",
+
+    "terminal.background": "#060608",
+    "terminal.foreground": "#c8c8d0",
+    "terminalCursor.foreground": "#d2772e",
+    "terminal.selectionBackground": "#a85a2055",
+    "terminal.ansiBlack": "#16161a",
+    "terminal.ansiRed": "#d2772e",
+    "terminal.ansiGreen": "#7a9f6c",
+    "terminal.ansiYellow": "#d2aa46",
+    "terminal.ansiBlue": "#5c70a0",
+    "terminal.ansiMagenta": "#be405c",
+    "terminal.ansiCyan": "#5ca0aa",
+    "terminal.ansiWhite": "#c8c8d0",
+    "terminal.ansiBrightBlack": "#6c6c78",
+    "terminal.ansiBrightRed": "#e08a45",
+    "terminal.ansiBrightGreen": "#96be6e",
+    "terminal.ansiBrightYellow": "#f0c85a",
+    "terminal.ansiBrightBlue": "#7896c8",
+    "terminal.ansiBrightMagenta": "#e65a78",
+    "terminal.ansiBrightCyan": "#78c8d2",
+    "terminal.ansiBrightWhite": "#ebebf0",
+
+    "button.background": "#a85a20",
+    "button.foreground": "#e0e0e6",
+    "button.hoverBackground": "#d2772e",
+    "button.secondaryBackground": "#26262c",
+    "button.secondaryForeground": "#c8c8d0",
+    "input.background": "#16161a",
+    "input.foreground": "#c8c8d0",
+    "input.border": "#26262c",
+    "input.placeholderForeground": "#6c6c78",
+    "inputOption.activeBorder": "#d2772e",
+    "inputOption.activeBackground": "#a85a2055",
+    "dropdown.background": "#16161a",
+    "dropdown.border": "#26262c",
+    "list.activeSelectionBackground": "#a85a20",
+    "list.activeSelectionForeground": "#e0e0e6",
+    "list.inactiveSelectionBackground": "#16161a",
+    "list.hoverBackground": "#16161a",
+    "list.focusBackground": "#a85a2077",
+    "list.highlightForeground": "#d2772e",
+    "list.errorForeground": "#e08a45",
+
+    "badge.background": "#d2772e",
+    "badge.foreground": "#060608",
+    "progressBar.background": "#d2772e",
+    "textLink.foreground": "#e08a45",
+    "textLink.activeForeground": "#d2772e",
+    "scrollbarSlider.background": "#a85a2044",
+    "scrollbarSlider.hoverBackground": "#d2772e55",
+    "scrollbarSlider.activeBackground": "#d2772e88",
+
+    "editorWidget.background": "#16161a",
+    "editorWidget.border": "#26262c",
+    "editorSuggestWidget.background": "#16161a",
+    "editorSuggestWidget.selectedBackground": "#a85a2077",
+    "editorSuggestWidget.highlightForeground": "#d2772e",
+    "editorHoverWidget.background": "#16161a",
+    "menu.background": "#16161a",
+    "menu.foreground": "#c8c8d0",
+    "menu.selectionBackground": "#a85a20",
+    "menu.selectionForeground": "#e0e0e6",
+    "peekViewEditor.background": "#060608",
+    "peekViewResult.background": "#16161a",
+    "peekViewResult.selectionBackground": "#a85a2077",
+
+    "editorError.foreground": "#e08a45",
+    "editorWarning.foreground": "#d2aa46",
+    "editorInfo.foreground": "#5ca0aa",
+
+    "gitDecoration.modifiedResourceForeground": "#d2aa46",
+    "gitDecoration.untrackedResourceForeground": "#7a9f6c",
+    "gitDecoration.deletedResourceForeground": "#e08a45",
+    "gitDecoration.ignoredResourceForeground": "#4a4a52",
+    "gitDecoration.conflictingResourceForeground": "#d2772e",
+
+    "minimap.background": "#060608",
+    "minimapSlider.background": "#a85a2033",
+
+    "editorBracketHighlight.foreground1": "#d2772e",
+    "editorBracketHighlight.foreground2": "#d2aa46",
+    "editorBracketHighlight.foreground3": "#7a9f6c",
+    "editorBracketHighlight.foreground4": "#5ca0aa",
+    "editorBracketHighlight.foreground5": "#9a9aa6",
+    "editorBracketHighlight.foreground6": "#be405c",
+  },
+
+  // ─── UI / ПАНЕЛИ / БАРЫ ──────────────────────────────────────────
+  "workbench.activityBar.location": "default",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 12,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.tree.indent": 16,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreview": false,
+  "breadcrumbs.enabled": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.minimap.enabled": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.maxColumn": 120,
+  "editor.minimap.showSlider": "always",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.guides.indentation": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.renderLineHighlight": "all",
+  "editor.rulers": [88, 120],
+  "editor.scrollBeyondLastLine": false,
+  "editor.lineNumbers": "on",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.compactFolders": false,
+
+  // ─── ПРИВАТНОСТЬ (рубим телеметрию под корень) ──────────────────
+  "telemetry.telemetryLevel": "off",
+  "redhat.telemetry.enabled": false,
+  "workbench.enableExperiments": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "update.showReleaseNotes": false,
+  "npm.fetchOnlinePackageInfo": false,
+
+  // ─── ТЕРМИНАЛ (fish + Nerd Font для иконок) ─────────────────────
+  "terminal.integrated.defaultProfile.linux": "fish",
+  "terminal.integrated.profiles.linux": {
+    "fish": {
+      "path": "/usr/bin/fish",
+      "args": ["-l"],
+      "icon": "terminal-bash",
+    },
+    "bash": {
+      "path": "/usr/bin/bash",
+    },
+  },
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', 'MesloLGS Nerd Font', monospace",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1.2,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.gpuAcceleration": "on",
+
+  // ─── GIT / GITLENS ───────────────────────────────────────────────
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.openRepositoryInParentFolders": "always",
+  "git.suggestSmartCommit": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "gitlens.currentLine.enabled": true,
+  "gitlens.codeLens.enabled": true,
+
+  // ─── ФОРМАТТЕРЫ ПО ЯЗЫКАМ ────────────────────────────────────────
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.tabSize": 4,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit",
+    },
+  },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[scss]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[yaml]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+
+  // ─── PYTHON ──────────────────────────────────────────────────────
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.testing.pytestEnabled": true,
+
+  // ─── АССОЦИАЦИИ ФАЙЛОВ ───────────────────────────────────────────
+  "files.associations": {
+    "config.fish": "fish",
+    "*.fish": "fish",
+    ".env*": "dotenv",
+    "*.conf": "ini",
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/node_modules": true,
+    "**/.ruff_cache": true,
+  },
+
+  // ─── ERROR LENS ──────────────────────────────────────────────────
+  "errorLens.enabledDiagnosticLevels": ["error", "warning", "info"],
+
+  // ─── TODO TREE (gruntfuggly.todo-tree) — подсветка маркеров ──────
+  // Указываем путь к системному ripgrep (встроенный vscode-ripgrep не найден)
+  "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
+  "todo-tree.general.tags": ["TODO", "FIXME", "HACK", "BUG", "ХУЙНЯ", "ЗАЛУПА"],
+  "todo-tree.highlights.useColourScheme": true,
+
+  // ─── BETTER COMMENTS работает из коробки, доп. ключи не нужны ────
+
+  // ─── CLAUDE CODE (из прошлой сессии, не трогаем логику) ─────────
+  "claudeCode.preferredLocation": "panel",
+  "claudeCode.allowDangerouslySkipPermissions": false,
+  "claudeCode.disableLoginPrompt": true,
+
+  // ─── KILO-CODE (оставлен по просьбе) ────────────────────────────
+  "kilo-code.new.autoApprove.enabled": true,
+  "kilo-code.new.language": "ru",
+  "terminal.integrated.commandsToSkipShell": [
+    "kilo-code.new.agentManagerOpen",
+    "kilo-code.new.agentManager.showTerminal",
+  ],
+  "kilo-code.new.claudeCodeCompat": true,
+  "claudeCode.environmentVariables": [],
+  "kilo-code.new.browserAutomation.useSystemChrome": false,
+  "editor.screenReaderAnnounceInlineSuggestion": false,
+
+  // ─── ПЕРФОРМАНС: не следим/не ищем в тяжёлых папках (буст CPU+поиск на больших репо) ──
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/__pycache__/**": true,
+    "**/.venv/**": true,
+    "**/venv/**": true,
+    "**/.ruff_cache/**": true,
+    "**/.mypy_cache/**": true,
+    "**/.pytest_cache/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/target/**": true,
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/.venv": true,
+    "**/venv": true,
+    "**/.ruff_cache": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/*.lock": true,
+    "**/package-lock.json": true,
+    "**/uv.lock": true,
+  },
+  "search.followSymlinks": false,
+  "search.smartCase": true,
+  "editor.accessibilitySupport": "off",
+  "workbench.editor.wrapTabs": true,
+  "git.autofetchPeriod": 180,
+  "extensions.autoCheckUpdates": false,
+
+  // ─── FILE NESTING: группируем связанные файлы в дереве (чище проводник) ──────────────
+  // README/*.md верхнего уровня НЕ прячем — у тебя там важные доки (PLAN, SERVER_STATE и пр.)
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js, ${capture}.d.ts, ${capture}.test.ts",
+    "*.js": "${capture}.js.map, ${capture}.min.js",
+    "package.json": "package-lock.json, .npmrc, .nvmrc, pnpm-lock.yaml, yarn.lock, bun.lockb, tsconfig*.json",
+    "pyproject.toml": "uv.lock, poetry.lock, requirements*.txt, setup.py, setup.cfg, .python-version, ruff.toml, .ruff.toml, tox.ini, pytest.ini, mypy.ini, .flake8",
+    ".env": ".env.*",
+    "docker-compose.yml": "docker-compose.*.yml, .dockerignore",
+    "Dockerfile": "Dockerfile.*, .dockerignore",
+  },
+}

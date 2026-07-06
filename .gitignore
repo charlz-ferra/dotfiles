@@ -1,0 +1,16 @@
+# Бэкапы от install.sh
+*.bak-*
+*.bak
+
+# Секреты — НИКОГДА не коммитим (страховка)
+*.env
+.env*
+*.pem
+*.key
+*token*
+*secret*
+*credentials*
+
+# OS мусор
+.DS_Store
+*~

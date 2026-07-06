@@ -1,0 +1,58 @@
+[user]
+	name = your-name
+	email = you@example.com
+	; signingkey = ~/.ssh/your-signing-key.pub   ; uncomment after adding your key
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
+[core]
+	editor = code --wait
+	excludesfile = ~/.config/git/ignore
+	pager = delta
+[color]
+	ui = auto
+[fetch]
+	prune = true
+[diff]
+	colorMoved = default
+[rerere]
+	enabled = true
+[alias]
+	st = status -sb
+	co = checkout
+	br = branch
+	ci = commit
+	cm = commit -m
+	aa = add -A
+	unstage = reset HEAD --
+	last = log -1 HEAD --stat
+	lg = log --graph --pretty=format:'%C(auto)%h%d %s %C(dim)(%cr) <%an>' --abbrev-commit
+	amend = commit --amend --no-edit
+	undo = reset --soft HEAD~1
+	wip = !git add -A && git commit -m WIP
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = false
+	syntax-theme = Dracula
+[merge]
+	conflictStyle = zdiff3
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = false   ; flip to true once you set a signing key
+[tag]
+	gpgsign = false   ; flip to true once you set a signing key
+[gpg "ssh"]
+	allowedSignersFile = ~/.config/git/allowed_signers

@@ -1,0 +1,10 @@
+[Daemon]
+Autolock=true
+LockGrace=30
+Timeout=10
+
+[Greeter]
+WallpaperPlugin=org.kde.color
+
+[Greeter][Wallpaper][org.kde.color][General]
+Color=0,0,0
