@@ -21,7 +21,7 @@ general = "Alacritty"
 history = 10000
 multiplier = 3
 
-# ─── Ember Blackout (true black + ember accent) ───
+# ─── Blackout (true black + gray accent) ───
 [colors]
 draw_bold_text_with_bright_colors = true
 

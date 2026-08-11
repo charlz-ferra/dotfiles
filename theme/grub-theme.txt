@@ -7,7 +7,7 @@ desktop-color: "#000000"
   width = 40%
   height = 50%
   item_color = "#8a8a8a"
-  selected_item_color = "#D2772E"
+  selected_item_color = "#d0d0d8"
   item_height = 42
   item_spacing = 10
 }

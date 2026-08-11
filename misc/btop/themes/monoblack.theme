@@ -1,0 +1,56 @@
+# MonoBlack btop theme — графит + кроваво-красный
+# Монохром-база, графики уходят серый→кровь
+
+theme[main_bg]=""
+theme[main_fg]="#c8c8d0"
+theme[title]="#c8c8d0"
+theme[hi_fg]="#d0d0d8"
+theme[selected_bg]="#26262c"
+theme[selected_fg]="#d0d0d8"
+theme[inactive_fg]="#6c6c78"
+theme[graph_text]="#9a9aa6"
+theme[meter_bg]="#26262c"
+theme[proc_misc]="#d0d0d8"
+
+theme[cpu_box]="#2a2a30"
+theme[mem_box]="#2a2a30"
+theme[net_box]="#2a2a30"
+theme[proc_box]="#2a2a30"
+theme[div_line]="#26262c"
+
+# Температура: зелёный → янтарь → кровь (семантика жара)
+theme[temp_start]="#7f7f7f"
+theme[temp_mid]="#c8c8d0"
+theme[temp_end]="#d0d0d8"
+
+# CPU: серый → тёмная кровь → кровь
+theme[cpu_start]="#3a3a42"
+theme[cpu_mid]="#96969e"
+theme[cpu_end]="#d0d0d8"
+
+# Память
+theme[free_start]="#3a3a42"
+theme[free_mid]=""
+theme[free_end]="#6c6c78"
+theme[cached_start]="#3a3a42"
+theme[cached_mid]=""
+theme[cached_end]="#9a9aa6"
+theme[available_start]="#3a3a42"
+theme[available_mid]=""
+theme[available_end]="#c8c8d0"
+theme[used_start]="#96969e"
+theme[used_mid]=""
+theme[used_end]="#d0d0d8"
+
+# Сеть
+theme[download_start]="#3a3a42"
+theme[download_mid]="#96969e"
+theme[download_end]="#d0d0d8"
+theme[upload_start]="#3a3a42"
+theme[upload_mid]="#96969e"
+theme[upload_end]="#d0d0d8"
+
+# Графики процессов
+theme[process_start]="#3a3a42"
+theme[process_mid]="#96969e"
+theme[process_end]="#d0d0d8"

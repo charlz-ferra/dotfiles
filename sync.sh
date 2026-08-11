@@ -28,19 +28,19 @@ if command -v code >/dev/null 2>&1; then
 	echo "  extension list refreshed ($(wc -l <"$DOT/vscode/extensions.txt") items)"
 fi
 
-echo "── Themes (Ember Blackout / Redteam-Blood) ──"
+echo "── Themes (Blackout / MonoBlack) ──"
 mkdir -p "$DOT/theme/color-schemes" "$DOT/theme/konsole" "$DOT/theme/gtk" "$DOT/theme/wallpapers"
-cp -v "$HOME"/.local/share/color-schemes/Redteam*.colors "$DOT/theme/color-schemes/" 2>/dev/null || true
-cp -v "$HOME/.local/share/color-schemes/BlackOrange.colors" "$DOT/theme/color-schemes/" 2>/dev/null || true
-cp -v "$HOME/.local/share/konsole/RedteamBlood.profile" "$DOT/theme/konsole/" 2>/dev/null || true
-cp -v "$HOME/.local/share/konsole/RedteamBlood.colorscheme" "$DOT/theme/konsole/" 2>/dev/null || true
+cp -v "$HOME"/.local/share/color-schemes/MonoBlack*.colors "$DOT/theme/color-schemes/" 2>/dev/null || true
+cp -v "$HOME/.local/share/color-schemes/MonoBlack.colors" "$DOT/theme/color-schemes/" 2>/dev/null || true
+cp -v "$HOME/.local/share/konsole/MonoBlack.profile" "$DOT/theme/konsole/" 2>/dev/null || true
+cp -v "$HOME/.local/share/konsole/MonoBlack.colorscheme" "$DOT/theme/konsole/" 2>/dev/null || true
 cp -v "$HOME/.config/alacritty/alacritty.toml" "$DOT/theme/alacritty.toml" 2>/dev/null || true
 cp -v "$HOME/.config/gtk-3.0/settings.ini" "$DOT/theme/gtk/gtk3-settings.ini" 2>/dev/null || true
 cp -v "$HOME/.config/gtk-4.0/settings.ini" "$DOT/theme/gtk/gtk4-settings.ini" 2>/dev/null || true
 cp -v "$HOME/.config/gtk-3.0/gtk.css" "$DOT/theme/gtk/gtk3.css" 2>/dev/null || true
 cp -v "$HOME/.config/gtk-4.0/gtk.css" "$DOT/theme/gtk/gtk4.css" 2>/dev/null || true
 cp -v "$HOME/.local/bin/accent" "$DOT/theme/accent" 2>/dev/null || true
-for w in redteam-blood ember-blackout ember-blackout-glow ember-blackout-line; do
+for w in monoblack blackout blackout-glow blackout-line; do
 	cp -v "$HOME/.local/share/wallpapers/$w.png" "$DOT/theme/wallpapers/" 2>/dev/null || true
 done
 
@@ -60,9 +60,9 @@ cp -v "$HOME/.config/Kvantum/kvantum.kvconfig" "$DOT/kvantum/kvantum.kvconfig" 2
 
 echo "── Misc ──"
 cp -v "$HOME/.config/btop/btop.conf" "$DOT/misc/btop/btop.conf" 2>/dev/null || true
-cp -v "$HOME/.config/btop/themes/redteam-blood.theme" "$DOT/misc/btop/themes/" 2>/dev/null || true
+cp -v "$HOME/.config/btop/themes/monoblack.theme" "$DOT/misc/btop/themes/" 2>/dev/null || true
 cp -v "$HOME/.config/fastfetch/config.jsonc" "$DOT/misc/fastfetch/config.jsonc" 2>/dev/null || true
-cp -v "$HOME/.config/vesktop/themes/redteam-blood.css" "$DOT/misc/vesktop-themes/" 2>/dev/null || true
+cp -v "$HOME/.config/vesktop/themes/monoblack.css" "$DOT/misc/vesktop-themes/" 2>/dev/null || true
 
 echo ""
 echo "✅ Repo updated. Review the diff before committing —"

@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════════════════
- *  Zen userChrome — REDTEAM / BLOOD  (charlz-ferra)
- *  Графит #060608 + кроваво-красный #d2772e. Строго, минималистично, опасно.
+ *  Zen userChrome — MonoBlack  (charlz-ferra)
+ *  Графит #060608 + кроваво-красный #d0d0d8. Строго, минималистично, опасно.
  *  Грузится при toolkit.legacyUserProfileCustomizations.stylesheets=true
  * ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -11,8 +11,8 @@
   --rt-alt: #26262c;
   --rt-text: #c8c8d0;
   --rt-dim: #6c6c78;
-  --rt-accent: #d2772e;
-  --rt-accent-dark: #a85a20;
+  --rt-accent: #d0d0d8;
+  --rt-accent-dark: #96969e;
 
   /* ── Zen accent / primary ── */
   --zen-primary-color: var(--rt-accent) !important;

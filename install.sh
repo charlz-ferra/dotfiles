@@ -57,13 +57,13 @@ else
 	echo "  ⚠️ 'code' not found — skipping extensions"
 fi
 
-echo "── Themes (Ember Blackout / Redteam-Blood) ──"
+echo "── Themes (MonoBlack — strict monochrome) ──"
 mkdir -p "$HOME/.local/share/color-schemes" "$HOME/.local/share/konsole" "$HOME/.config/alacritty" "$HOME/.local/bin" "$HOME/.local/share/wallpapers"
 for c in "$DOT"/theme/color-schemes/*.colors; do
 	[ -f "$c" ] && link "$c" "$HOME/.local/share/color-schemes/$(basename "$c")" || true
 done
-[ -f "$DOT/theme/konsole/RedteamBlood.profile" ] && link "$DOT/theme/konsole/RedteamBlood.profile" "$HOME/.local/share/konsole/RedteamBlood.profile" || true
-[ -f "$DOT/theme/konsole/RedteamBlood.colorscheme" ] && link "$DOT/theme/konsole/RedteamBlood.colorscheme" "$HOME/.local/share/konsole/RedteamBlood.colorscheme" || true
+[ -f "$DOT/theme/konsole/MonoBlack.profile" ] && link "$DOT/theme/konsole/MonoBlack.profile" "$HOME/.local/share/konsole/MonoBlack.profile" || true
+[ -f "$DOT/theme/konsole/MonoBlack.colorscheme" ] && link "$DOT/theme/konsole/MonoBlack.colorscheme" "$HOME/.local/share/konsole/MonoBlack.colorscheme" || true
 [ -f "$DOT/theme/alacritty.toml" ] && link "$DOT/theme/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml" || true
 [ -f "$DOT/theme/gtk/gtk3-settings.ini" ] && link "$DOT/theme/gtk/gtk3-settings.ini" "$HOME/.config/gtk-3.0/settings.ini" || true
 [ -f "$DOT/theme/gtk/gtk4-settings.ini" ] && link "$DOT/theme/gtk/gtk4-settings.ini" "$HOME/.config/gtk-4.0/settings.ini" || true
@@ -84,19 +84,17 @@ if [ -d "$DOT/theme/icons/char-white" ]; then
 	command -v gtk-update-icon-cache >/dev/null && gtk-update-icon-cache -f "$HOME/.local/share/icons/char-white" 2>/dev/null || true
 fi
 
-echo "── KDE Global Theme: Redteam-Blood ──"
-[ -d "$DOT/kde/look-and-feel/Redteam-Blood" ] && {
+echo "── KDE Global Theme: MonoBlack ──"
+[ -d "$DOT/kde/look-and-feel/MonoBlack" ] && {
 	mkdir -p "$HOME/.local/share/plasma/look-and-feel"
-	cp -r "$DOT/kde/look-and-feel/Redteam-Blood" "$HOME/.local/share/plasma/look-and-feel/"
-	echo "  ✓ L&F installed (apply: plasma-apply-lookandfeel -a Redteam-Blood)"
+	cp -r "$DOT/kde/look-and-feel/MonoBlack" "$HOME/.local/share/plasma/look-and-feel/"
+	echo "  ✓ L&F installed (apply: plasma-apply-lookandfeel -a MonoBlack)"
 } || true
 
-echo "── KDE / Qt ──"
-mkdir -p "$HOME/.config/Kvantum"
+echo "── KDE ──"
 for k in kdeglobals kwinrc kcminputrc ksplashrc kscreenlockerrc; do
 	[ -f "$DOT/kde/$k" ] && link "$DOT/kde/$k" "$HOME/.config/$k" || true
 done
-[ -f "$DOT/kvantum/kvantum.kvconfig" ] && link "$DOT/kvantum/kvantum.kvconfig" "$HOME/.config/Kvantum/kvantum.kvconfig" || true
 
 echo "── Zen Browser (hardened user.js + userChrome theme) ──"
 # active profile = "Default (release)", NOT the first alphabetically
@@ -108,12 +106,12 @@ ZP="$(ls -d "$HOME"/.config/zen/*"Default (release)"/ 2>/dev/null | head -1 || t
 echo "── Misc (btop / fastfetch / vesktop theme) ──"
 mkdir -p "$HOME/.config/btop/themes" "$HOME/.config/fastfetch" "$HOME/.config/vesktop/themes"
 [ -f "$DOT/misc/btop/btop.conf" ] && link "$DOT/misc/btop/btop.conf" "$HOME/.config/btop/btop.conf" || true
-[ -f "$DOT/misc/btop/themes/redteam-blood.theme" ] && link "$DOT/misc/btop/themes/redteam-blood.theme" "$HOME/.config/btop/themes/redteam-blood.theme" || true
+[ -f "$DOT/misc/btop/themes/monoblack.theme" ] && link "$DOT/misc/btop/themes/monoblack.theme" "$HOME/.config/btop/themes/monoblack.theme" || true
 [ -f "$DOT/misc/fastfetch/config.jsonc" ] && link "$DOT/misc/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.jsonc" || true
-[ -f "$DOT/misc/vesktop-themes/redteam-blood.css" ] && link "$DOT/misc/vesktop-themes/redteam-blood.css" "$HOME/.config/vesktop/themes/redteam-blood.css" || true
+[ -f "$DOT/misc/vesktop-themes/monoblack.css" ] && link "$DOT/misc/vesktop-themes/monoblack.css" "$HOME/.config/vesktop/themes/monoblack.css" || true
 
 echo ""
 echo "✅ Done. Restart fish and VS Code."
 echo "⚠️  Edit [user] in ~/.gitconfig — it ships with placeholders."
-echo "ℹ️  Theme apply commands (Ember Blackout accent, konsole default): theme/NOTES.md"
+echo "ℹ️  Theme apply commands (MonoBlack accent, konsole default): theme/NOTES.md"
 echo "ℹ️  GRUB/SDDM themes are NOT auto-installed (need root) — see system/deploy-system.sh"

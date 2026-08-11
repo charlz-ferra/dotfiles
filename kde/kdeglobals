@@ -21,13 +21,13 @@ IntensityAmount=0
 IntensityEffect=0
 
 [Colors:Button]
-BackgroundAlternate=189,42,43
+BackgroundAlternate=86,86,86
 BackgroundNormal=38, 38, 44
-DecorationFocus=255,44,44
-DecorationHover=255,44,44
-ForegroundActive=255,44,44
+DecorationFocus=208,208,216
+DecorationHover=208,208,216
+ForegroundActive=208,208,216
 ForegroundInactive=108, 108, 120
-ForegroundLink=255,188,188
+ForegroundLink=208,208,208
 ForegroundNegative=255, 85, 85
 ForegroundNeutral=210, 170, 70
 ForegroundNormal=200, 200, 208
@@ -37,11 +37,11 @@ ForegroundVisited=160, 24, 24
 [Colors:Complementary]
 BackgroundAlternate=22, 22, 26
 BackgroundNormal=13, 13, 15
-DecorationFocus=255,44,44
-DecorationHover=255,44,44
-ForegroundActive=255,44,44
+DecorationFocus=208,208,216
+DecorationHover=208,208,216
+ForegroundActive=208,208,216
 ForegroundInactive=108, 108, 120
-ForegroundLink=255,44,44
+ForegroundLink=208,208,216
 ForegroundNegative=255, 85, 85
 ForegroundNeutral=210, 170, 70
 ForegroundNormal=200, 200, 208
@@ -51,11 +51,11 @@ ForegroundVisited=160, 24, 24
 [Colors:Header]
 BackgroundAlternate=22,22,26
 BackgroundNormal=13,13,15
-DecorationFocus=255,44,44
-DecorationHover=255,44,44
-ForegroundActive=255,44,44
+DecorationFocus=208,208,216
+DecorationHover=208,208,216
+ForegroundActive=208,208,216
 ForegroundInactive=108, 108, 120
-ForegroundLink=255,44,44
+ForegroundLink=208,208,216
 ForegroundNegative=255, 85, 85
 ForegroundNeutral=210, 170, 70
 ForegroundNormal=200,200,208
@@ -67,13 +67,13 @@ BackgroundNormal=16,16,20
 ForegroundNormal=167,158,159
 
 [Colors:Selection]
-BackgroundAlternate=182,34,35
-BackgroundNormal=182,34,35
-DecorationFocus=255,44,44
-DecorationHover=255,44,44
-ForegroundActive=255,44,44
+BackgroundAlternate=78,78,78
+BackgroundNormal=78,78,78
+DecorationFocus=208,208,216
+DecorationHover=208,208,216
+ForegroundActive=208,208,216
 ForegroundInactive=255,255,255
-ForegroundLink=255,188,188
+ForegroundLink=208,208,208
 ForegroundNegative=255, 85, 85
 ForegroundNeutral=210, 170, 70
 ForegroundNormal=255,255,255
@@ -83,11 +83,11 @@ ForegroundVisited=230, 230, 235
 [Colors:Tooltip]
 BackgroundAlternate=13, 13, 15
 BackgroundNormal=22, 22, 26
-DecorationFocus=255,44,44
-DecorationHover=255,44,44
-ForegroundActive=255,44,44
+DecorationFocus=208,208,216
+DecorationHover=208,208,216
+ForegroundActive=208,208,216
 ForegroundInactive=108, 108, 120
-ForegroundLink=255,44,44
+ForegroundLink=208,208,216
 ForegroundNegative=255, 85, 85
 ForegroundNeutral=210, 170, 70
 ForegroundNormal=200, 200, 208
@@ -97,11 +97,11 @@ ForegroundVisited=160, 24, 24
 [Colors:View]
 BackgroundAlternate=22, 22, 26
 BackgroundNormal=13, 13, 15
-DecorationFocus=255,44,44
-DecorationHover=255,44,44
-ForegroundActive=255,44,44
+DecorationFocus=208,208,216
+DecorationHover=208,208,216
+ForegroundActive=208,208,216
 ForegroundInactive=108, 108, 120
-ForegroundLink=255,44,44
+ForegroundLink=208,208,216
 ForegroundNegative=255, 85, 85
 ForegroundNeutral=210, 170, 70
 ForegroundNormal=200, 200, 208
@@ -111,11 +111,11 @@ ForegroundVisited=160, 24, 24
 [Colors:Window]
 BackgroundAlternate=13, 13, 15
 BackgroundNormal=22, 22, 26
-DecorationFocus=255,44,44
-DecorationHover=255,44,44
-ForegroundActive=255,44,44
+DecorationFocus=208,208,216
+DecorationHover=208,208,216
+ForegroundActive=208,208,216
 ForegroundInactive=108, 108, 120
-ForegroundLink=255,44,44
+ForegroundLink=208,208,216
 ForegroundNegative=255, 85, 85
 ForegroundNeutral=210, 170, 70
 ForegroundNormal=200, 200, 208
@@ -123,23 +123,23 @@ ForegroundPositive=122, 162, 92
 ForegroundVisited=160, 24, 24
 
 [General]
-AccentColor=210,119,46
+AccentColor=208,208,216
 BrowserApplication=brave-origin.desktop
-ColorScheme=BlackOrange
+ColorScheme=MonoBlack
 ColorSchemeHash=b8ff5ac1b69e22d6455ece827566ea597940e772
-LastUsedCustomAccentColor=210,119,46
+LastUsedCustomAccentColor=208,208,216
 TerminalApplication=ghostty
 TerminalService=com.mitchellh.ghostty.desktop
 accentActiveTitlebar=false
 accentColorFromWallpaper=false
-fixed=JetBrainsMono Nerd Font,11,-1,5,50,0,0,0,0,0
-font=Inter,10,-1,5,50,0,0,0,0,0
-menuFont=Inter,10,-1,5,50,0,0,0,0,0
-smallestReadableFont=Inter,8,-1,5,50,0,0,0,0,0
-toolBarFont=Inter,10,-1,5,50,0,0,0,0,0
+fixed=JetBrainsMono Nerd Font,11,-9,9,9,0,0,0,0,0
+font=Inter,10,-9,9,9,0,0,0,0,0
+menuFont=Inter,10,-9,9,9,0,0,0,0,0
+smallestReadableFont=Inter,8,-9,9,9,0,0,0,0,0
+toolBarFont=Inter,10,-9,9,9,0,0,0,0,0
 
 [KDE]
-LookAndFeelPackage=Redteam-Blood
+LookAndFeelPackage=MonoBlack
 SingleClick=false
 contrast=4
 frameContrast=0.2
@@ -166,9 +166,9 @@ View Style=DetailTree
 ScreenScaleFactors=eDP-1=1;
 
 [WM]
-activeBackground=185,37,38
-activeBlend=255,44,44
-activeFont=Inter,10,-1,5,50,0,0,0,0,0
+activeBackground=81,81,81
+activeBlend=208,208,216
+activeFont=Inter,10,-9,9,9,0,0,0,0,0
 activeForeground=255,255,255
 inactiveBackground=13,13,15
 inactiveBlend=108,108,120

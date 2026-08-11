@@ -1,6 +1,6 @@
 # ═══════════════════════════════════════════════════════════════
-#  Ghostty — Ember Blackout
-#  true black OLED (#060608) + ember accent (#d2772e) + JetBrainsMono
+#  Ghostty — Blackout
+#  true black OLED (#060608) + gray accent (#d0d0d8) + JetBrainsMono
 # ═══════════════════════════════════════════════════════════════
 
 # ─── Шрифт ───
@@ -9,30 +9,30 @@ font-size = 12
 font-thicken = true
 adjust-cell-height = 12%
 
-# ─── Палитра Ember Blackout ───
+# ─── Палитра Blackout ───
 background = #060608
 foreground = #c8c8d0
-cursor-color = #d2772e
+cursor-color = #d0d0d8
 cursor-text = #060608
-selection-background = #d2772e
+selection-background = #d0d0d8
 selection-foreground = #060608
 
 # ANSI (приглушённая тёплая палитра — не кислотная)
 palette = 0=#16161a
-palette = 1=#d45c5c
-palette = 2=#7a9f6c
-palette = 3=#d2aa46
-palette = 4=#6a8caf
-palette = 5=#a87fb0
-palette = 6=#6fa6a0
+palette = 1=#808080
+palette = 2=#8e8e8e
+palette = 3=#c8c8d0
+palette = 4=#868686
+palette = 5=#919191
+palette = 6=#959595
 palette = 7=#c8c8d0
 palette = 8=#6c6c78
-palette = 9=#e06c6c
-palette = 10=#8fb37e
-palette = 11=#e0bc5a
-palette = 12=#7fa0c4
-palette = 13=#bb95c2
-palette = 14=#82bcb6
+palette = 9=#8f8f8f
+palette = 10=#a2a2a2
+palette = 11=#bcbcbc
+palette = 12=#9a9a9a
+palette = 13=#a5a5a5
+palette = 14=#aaaaaa
 palette = 15=#e6e6eb
 
 # ─── Внешний вид (аскет, true black) ───

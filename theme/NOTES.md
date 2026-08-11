@@ -1,36 +1,31 @@
-# Тема «Ember Blackout» — true black OLED + тёплый оранж
+# Тема «MonoBlack» — строгий монохром (чёрный / белый / серый)
 
 Палитра: фон **#060608** (true black, пиксели OLED off), слои `#0F0F12`/`#16161A`,
 бордер `#242429`, текст `#C8C8D0`/`#E6E6EB`, dim `#6C6C78`,
-акцент **#D2772E (Ember)** = `210,119,46`, hover `#E08A45`, pressed `#A85A20`,
-success `#7A9F6C`, amber `#D2AA46`.
+акцент **#d0d0d8** = `208,208,216`, hover `#e8e8ee`, pressed `#96969e`.
+Ни одного цветного пятна — только оттенки серого, везде.
 
-Источник правды цвета KDE — color-scheme **`BlackOrange.colors`** + скрипт **`accent`**.
+Источник правды цвета KDE — color-scheme **`MonoBlack.colors`** + скрипт **`accent`**.
 
 ## Применить после install.sh
 
 ```sh
-plasma-apply-lookandfeel -a Redteam-Blood   # L&F-пакет (BlackOrange + char-white + WhiteSur + Breeze-стиль)
-accent ember                                # схема BlackOrange + KDE-акцент + starship + kwin reconfigure
+plasma-apply-lookandfeel -a MonoBlack   # L&F-пакет (MonoBlack + char-white + WhiteSur + Breeze-декорация)
+accent                                   # переасертить MonoBlack: схема + KDE-акцент + starship + kwin reconfigure
 ```
 
-## Переключатель акцента (один скрипт на всё)
+`accent` не принимает цветов — тема одна, строго монохром. Запускать после
+apply Global Theme (KDE перетинчивает Header акцентом) или чтобы вернуть палитру.
 
-```sh
-accent ember     # тёплый оранж #D2772E  (дефолт)
-accent red       # кровь #FF2C2C  (старый redteam-вайб)
-accent lime | cyan | amber
-```
+## Где живут оттенки серого (если правишь)
 
-## Где живут цвета (если меняешь оттенок)
-
-- **KDE:** `theme/color-schemes/BlackOrange.colors`, `kde/kdeglobals` (`AccentColor`), `kde/look-and-feel/Redteam-Blood/contents/defaults`
-- **Терминал:** `ghostty/config` (основной, дефолтный), `theme/alacritty.toml`, `theme/konsole/RedteamBlood.colorscheme`
-- **Shell:** `starship/starship.toml` (`[palettes.redteam]`), `fish/config.fish` (`fish_color_*`)
-- **VS Code:** `vscode/settings.json` (`workbench.colorCustomizations` + `editor.tokenColorCustomizations`)
+- **KDE:** `theme/color-schemes/MonoBlack.colors`, `kde/kdeglobals` (`AccentColor`), `kde/look-and-feel/MonoBlack/contents/defaults`
+- **Терминал:** `ghostty/config` (основной, дефолтный), `theme/alacritty.toml`, `theme/konsole/MonoBlack.colorscheme`
+- **Shell:** `starship/starship.toml` (`accent`/`bright`), `fish/config.fish` (`fish_color_*`)
+- **VS Code:** `vscode/settings.json` (`workbench.colorCustomizations` + `editor.tokenColorCustomizations` — grayscale-подсветка)
 - **GTK:** `theme/gtk/gtk3.css`, `gtk4.css`
 - **Прочее:** `misc/btop/themes/`, `misc/vesktop-themes/`, `zen/userChrome.css` + `zen/user.js`
-- **Система (sudo):** `system/grub/`, `system/sddm/` → деплой `system/deploy-system.sh`
+- **Система (sudo):** `system/grub/monoblack/`, `system/sddm/monoblack/` → деплой `system/deploy-system.sh`
 
 ## KWin (аскет — приоритет скорости)
 
@@ -41,19 +36,20 @@ Meta+C (VS Code), Meta+Shift+B (Brave), Meta+Shift+S (скрин области)
 
 ## Обои
 
-`theme/wallpapers/ember-blackout{,-glow,-line}.png` → `~/.local/share/wallpapers/ember-blackout/`
-Применить: `plasma-apply-wallpaperimage ~/.local/share/wallpapers/ember-blackout/ember-blackout-glow.png`
+`theme/wallpapers/blackout{,-glow,-line}.png` → `~/.local/share/wallpapers/blackout/`
+Применить: `plasma-apply-wallpaperimage ~/.local/share/wallpapers/blackout/blackout.png`
 
-- `ember-blackout.png` — чистый true black (макс OLED-экономия)
-- `ember-blackout-glow.png` — true black + едва тёплый центр (дефолт)
-- `ember-blackout-line.png` — true black + тонкая ember-диагональ
+- `blackout.png` — чистый true black (макс OLED-экономия)
+- `blackout-glow.png` — true black + едва заметный серый центр
+- `blackout-line.png` — true black + тонкая серая диагональ
 
-Генератор обоев: `magick -size 2560x1600 radial-gradient:'#130c07'-'#060608' out.png`
+Генератор обоев: `magick -size 2560x1600 radial-gradient:'#101013'-'#060608' out.png`
 
 ## Экран логина (SDDM) + GRUB — нужен sudo
 
-Темы в `system/sddm/redteam-blood/` и `system/grub/redteam-blood/` (перекрашены в Ember).
-Деплой одним скриптом: `sudo bash system/deploy-system.sh` (см. файл).
+Темы в `system/sddm/monoblack/` и `system/grub/monoblack/` — строгий монохром,
+ассеты в grayscale RGBA (GRUB-ридер не умеет палитровые PNG). Деплой одним
+скриптом: `sudo bash system/deploy-system.sh` (см. файл).
 
 ## Поп-ап «Share screen with org.chromium.Chromium»
 

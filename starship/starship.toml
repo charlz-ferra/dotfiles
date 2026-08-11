@@ -1,9 +1,9 @@
 # ═══════════════════════════════════════════════════════════════
-#  Starship prompt — Redteam/Blood (графит + кровь), под вайб-кодинг
+#  Starship prompt — MonoBlack (графит + кровь), под вайб-кодинг
 #  Дока: https://starship.rs/config/
 # ═══════════════════════════════════════════════════════════════
 
-palette = "redteam"
+palette = "monoblack"
 
 # Двухстрочный: инфа сверху, ввод снизу (удобно для длинных путей)
 add_newline = true
@@ -14,15 +14,15 @@ $python$nodejs$rust$golang$docker_context$kubernetes\
 $cmd_duration
 $character"""
 
-# ─── Палитра Redteam/Blood ───
-[palettes.redteam]
-accent = "#d2772e"
-bright = "#e08a45"
+# ─── Палитра MonoBlack ───
+[palettes.monoblack]
+accent = "#d0d0d8"
+bright = "#e8e8ee"
 text = "#c8c8d0"
 steel = "#9a9aa6"
 dim = "#6c6c78"
-amber = "#d2aa46"
-green = "#7a9f6c"
+amber = "#c8c8d0"
+green = "#8e8e8e"
 
 # ─── Символ ввода (меняет цвет по статусу последней команды) ───
 [character]

@@ -104,7 +104,7 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false); // не сл�
 */
 
 /* ═══════════════════════════════════════════════════════════════════════════
- *  REDTEAM / BLOOD — UI Zen (графит + кровь) + UX
+ *  MonoBlack — UI Zen (графит) + UX
  *  userChrome лежит в chrome/userChrome.css. Применяется при перезапуске Zen.
  * ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -112,7 +112,7 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false); // не сл�
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // ─── Акцент Zen → кроваво-красный ───
-user_pref("zen.theme.accent-color", "#d2772e");
+user_pref("zen.theme.accent-color", "#d0d0d8");
 user_pref("zen.theme.color-prefs.use-workspace-colors", true);
 
 // ─── РАСКЛАДКОЙ рулит САМ Zen (Settings → Look and Feel: Browser Layout, Vertical Tabs,

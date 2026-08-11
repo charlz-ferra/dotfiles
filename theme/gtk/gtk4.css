@@ -1,8 +1,8 @@
-/* Redteam/Blood — только акценты поверх Breeze-Dark (графит даёт сама тема) */
-@define-color accent_color #d2772e;
-@define-color accent_bg_color #d2772e;
+/* MonoBlack — только акценты поверх Breeze-Dark (графит даёт сама тема) */
+@define-color accent_color #d0d0d8;
+@define-color accent_bg_color #d0d0d8;
 @define-color accent_fg_color #060608;
-@define-color theme_selected_bg_color #a85a20;
+@define-color theme_selected_bg_color #96969e;
 @define-color theme_selected_fg_color #e0e0e6;
-@define-color destructive_color #d2772e;
+@define-color destructive_color #d0d0d8;
 @import 'colors.css';

@@ -1,7 +1,0 @@
-[General]
-type=image
-background=/usr/share/sddm/themes/breeze/vscode-orange-dark.png
-color=#E8772E
-showClock=true
-showlogo=hidden
-fontSize=11

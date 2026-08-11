@@ -1,47 +1,44 @@
 #!/usr/bin/env bash
 # ═══════════════════════════════════════════════════════════════
-#  accent — переключатель «опасного» акцента темы Redteam
-#  Меняет Plasma color-scheme + KDE accent + декорацию + starship-палитру.
-#  Использование:  accent red | lime | cyan | amber
+#  accent — (re)apply the MonoBlack look across Plasma + shell.
+#  Strict monochrome: black / white / gray, no color options.
+#  Run after a Global-Theme apply re-tinted things, or just to
+#  reassert the palette.
+#  Usage:  accent
 # ═══════════════════════════════════════════════════════════════
 set -uo pipefail
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
 
-case "${1:-ember}" in
-  ember) SCHEME=BlackOrange;  RGB="210,119,46"; HEX="d2772e"; BRIGHT="e08a45" ;;
-  red)   SCHEME=RedteamBlood; RGB="255,44,44";  HEX="ff2c2c"; BRIGHT="ff5a5a" ;;
-  lime)  SCHEME=RedteamLime;  RGB="159,239,0";  HEX="9fef00"; BRIGHT="b6ff33" ;;
-  cyan)  SCHEME=RedteamCyan;  RGB="42,245,255"; HEX="2af5ff"; BRIGHT="7afaff" ;;
-  amber) SCHEME=RedteamAmber; RGB="255,176,0";  HEX="ffb000"; BRIGHT="ffc640" ;;
-  *) echo "accent: выбери цвет → ember | red | lime | cyan | amber"; exit 1 ;;
-esac
+SCHEME=MonoBlack
+RGB="208,208,216"
+HEX="d0d0d8"
+BRIGHT="e8e8ee"
 
-echo "🩸 Акцент → $1 ($SCHEME)"
+echo "◼ MonoBlack → reapply"
 
-# ВАЖНО: акцент ставим ПЕРЕД схемой, иначе KDE затинтит декорации старым акцентом
+# accent BEFORE scheme, else KDE tints decorations with the old accent
 kwriteconfig6 --file kdeglobals --group General --key AccentColor "$RGB"
 kwriteconfig6 --file kdeglobals --group General --key accentColorFromWallpaper false
 
-# Схема (toggle через другую — заставляет перегенерить тинты под новый акцент)
-ALT=RedteamCyan; [ "$SCHEME" = "RedteamCyan" ] && ALT=RedteamBlood
-plasma-apply-colorscheme "$ALT" >/dev/null 2>&1
-plasma-apply-colorscheme "$SCHEME" >/dev/null 2>&1
+# toggle via a stock scheme to force tint regen, then set MonoBlack
+plasma-apply-colorscheme BreezeDark >/dev/null 2>&1 || true
+plasma-apply-colorscheme "$SCHEME" >/dev/null 2>&1 || true
 
-# KDE авто-тинтит Header(тулбары) акцентом → возвращаем графит (строго/минимально)
-kwriteconfig6 --file kdeglobals --group "Colors:Header" --key BackgroundNormal "13,13,15"
+# KDE auto-tints Header (toolbars) with accent → force graphite (strict/minimal)
+kwriteconfig6 --file kdeglobals --group "Colors:Header" --key BackgroundNormal "15,15,18"
 kwriteconfig6 --file kdeglobals --group "Colors:Header" --key BackgroundAlternate "22,22,26"
-kwriteconfig6 --file kdeglobals --group "Colors:Header" --key ForegroundNormal "200,200,208"
+kwriteconfig6 --file kdeglobals --group "Colors:Header" --key ForegroundNormal "208,208,216"
 kwriteconfig6 --file kdeglobals --group "Colors:Header" --group "Inactive" --key BackgroundNormal "16,16,20"
 kwriteconfig6 --file kdeglobals --group General --key accentActiveTitlebar false
 
-# starship-палитра (промпт в тон)
+# starship palette in tone
 ST="$HOME/.config/starship.toml"
 if [ -f "$ST" ]; then
   sed -i "s/^accent = \"#.*/accent = \"#$HEX\"/" "$ST"
   sed -i "s/^bright = \"#.*/bright = \"#$BRIGHT\"/" "$ST"
 fi
 
-# Перечитать kwin + плазму
+# reload kwin + plasma
 qdbus6 org.kde.KWin /KWin reconfigure >/dev/null 2>&1 || true
 
 echo "✓ Готово. Новые окна подхватят сразу; запущенные Qt-апп — после рестарта."

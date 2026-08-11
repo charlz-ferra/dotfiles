@@ -1,35 +1,32 @@
 # dotfiles
 
-> CachyOS (Arch) · KDE Plasma / Wayland · fish · ghostty · true black with one warm accent
+> CachyOS (Arch) · KDE Plasma / Wayland · fish · ghostty · strict monochrome (black / white / gray)
 
-![Redteam-Blood](kde/look-and-feel/Redteam-Blood/contents/previews/fullscreenpreview.jpg)
+![MonoBlack](kde/look-and-feel/MonoBlack/contents/previews/fullscreenpreview.jpg)
 
-A full desktop rice built around one idea: **the machine should look like it
-means business.** Zero visual noise from GRUB to the browser chrome, and a
-single accent color doing all the talking. Two moods, one accent away:
+A full desktop rice built around one idea: **strict blackout monochrome — black,
+white, gray, nothing else.** Zero color from GRUB to the browser chrome. True
+black `#060608` (OLED pixels off), a light-gray accent `#d0d0d8`, graphite
+surfaces. One coherent look everywhere: bootloader, login screen, Plasma,
+terminals, editor, browser.
 
-- **Ember Blackout** — the daily driver. True black `#060608` (OLED pixels
-  off), warm ember `#d2772e`. Muted, calm, zero acid.
-- **Redteam / Blood** — graphite + blood red `#ff2c2c`. GRUB, SDDM, konsole
-  and the Plasma Global Theme still carry it.
-
-Switching accents across KDE/fish/terminals is one command: `accent ember`.
+`accent` reasserts the whole **MonoBlack** palette across KDE + fish + terminals
+in one command.
 
 ## What's inside
 
-| Path        | What                                                                                                    |
-| ----------- | ------------------------------------------------------------------------------------------------------- |
-| `fish/`     | fish config: starship, zoxide, fzf, abbreviations that expand in place                                  |
-| `starship/` | prompt — git status, language versions, command duration                                                |
-| `ghostty/`  | Ember Blackout terminal: palette, JetBrainsMono, sane keybinds                                          |
-| `git/`      | gitconfig (aliases, delta, zdiff3) + global ignore — identity is a placeholder                          |
-| `vscode/`   | settings, keybindings, snippets, extension list                                                         |
-| `theme/`    | color schemes (BlackOrange + Redteam Blood/Amber/Cyan/Lime), konsole, alacritty, GTK, icons, wallpapers, `accent` switcher |
-| `kde/`      | Plasma Look-and-Feel package + kdeglobals/kwinrc/kcminputrc/ksplashrc/kscreenlockerrc                   |
-| `kvantum/`  | Qt theming                                                                                              |
-| `system/`   | **GRUB theme** + **SDDM theme** (Redteam-Blood, QML) + root deploy script                               |
-| `zen/`      | Zen Browser: hardened `user.js` (telemetry off, privacy prefs that don't break sites), `userChrome.css`, `policies.json` |
-| `misc/`     | btop theme, fastfetch config, vesktop (Discord) theme                                                   |
+| Path        | What                                                                                     |
+| ----------- | ---------------------------------------------------------------------------------------- |
+| `fish/`     | fish config: starship, zoxide, fzf, abbreviations that expand in place                   |
+| `starship/` | prompt — git status, language versions, command duration                                 |
+| `ghostty/`  | terminal: monochrome palette, JetBrainsMono, sane keybinds                               |
+| `git/`      | gitconfig (aliases, delta, zdiff3) + global ignore — identity is a placeholder           |
+| `vscode/`   | settings, keybindings, snippets, extension list — grayscale syntax                       |
+| `theme/`    | `MonoBlack` KDE color scheme, konsole, alacritty, GTK, icons, wallpapers, `accent`       |
+| `kde/`      | Plasma Look-and-Feel `MonoBlack` (Breeze decoration) + kdeglobals/kwinrc/kcminputrc/…    |
+| `system/`   | **GRUB** + **SDDM** MonoBlack themes (QML) + root deploy script                          |
+| `zen/`      | Zen Browser: hardened `user.js`, monochrome `userChrome.css`, `policies.json`            |
+| `misc/`     | btop theme, fastfetch config, vesktop (Discord) theme                                    |
 
 ## Install
 

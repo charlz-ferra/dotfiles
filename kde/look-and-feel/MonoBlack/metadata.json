@@ -1,0 +1,17 @@
+{
+  "KPackageStructure": "Plasma/LookAndFeel",
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "charlz-ferra"
+      }
+    ],
+    "Category": "Global Themes (Plasma 6)",
+    "Dependencies": [],
+    "EnabledByDefault": true,
+    "Id": "MonoBlack",
+    "License": "MIT",
+    "Name": "MonoBlack",
+    "Version": "1.0"
+  }
+}
